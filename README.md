@@ -19,3 +19,5 @@
 #   }
 # }
 
+# Este sitio web puede ser accedido desde moviles, pero solo esta optimizadas las paginas presentación_ejemplares, presentación_razas, detalle_ejemplares
+# falta una buena optimización de la barra de navegación para que esta se adapte sin mayor problema a dispositvos moviles
