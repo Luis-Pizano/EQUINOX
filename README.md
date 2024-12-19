@@ -21,3 +21,4 @@
 
 # Este sitio web puede ser accedido desde moviles, pero solo esta optimizadas las paginas presentación_ejemplares, presentación_razas, detalle_ejemplares
 # falta una buena optimización de la barra de navegación para que esta se adapte sin mayor problema a dispositvos moviles
+# falta una forma de cambiar el status (0 o 1 dependiendo de la cuenta) de cada cuenta, cambiar este status por medio de la pagina web y no desde la base de datos con un update cuentas_account set 
