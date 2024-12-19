@@ -26,7 +26,6 @@ SECRET_KEY = 'django-insecure-t+b%t_sh3$hgourai#r%#6j7i3p3xu3ynjhl(ght0y9qmvj_ne
 DEBUG = True
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['192.168.96.124','localhost']
 
 AUTH_USER_MODEL = 'cuentas.Account'
 
