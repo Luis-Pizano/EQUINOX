@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'add_tipo_empleado.css' %}">
+<div class="container">
+    <div class="contenido">
+    <h1>Agregar Tipo de Empleado</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Agregar</button>
+    </form>
+    </div>
+    
+
+</div>
+
+
+{% endblock content %}

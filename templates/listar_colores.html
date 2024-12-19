@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_colores.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de colores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de color</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for color in colores %}
+                <tr>
+                    <td>{{ color.id_color }}</td>
+                    <td>{{ color.nombre_color }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_color' %}';">Agregar color</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_color' color.id_color %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar color</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+</div>
+    
+{% endblock %}

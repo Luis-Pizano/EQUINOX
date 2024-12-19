@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'editar_suministro.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Editar Stock de Suministro</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="acciones">
+                <button type="submit" class="guardar">Guardar cambios</button>
+                <a href="{% url 'listar_suministros' %}" class="Cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

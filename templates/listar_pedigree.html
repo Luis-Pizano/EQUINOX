@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_pedigree.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de Pedigree</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Porcentaje de Pureza</th>
+                <th>Descripcion</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedigree in pedigrees %}
+                <tr>
+                    <td>{{ pedigree.id_pedigree }}</td>
+                    <td>{{ pedigree.porcentaje_pureza }}</td>
+                    <td>{{ pedigree.descripcion }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_pedigree' %}';">Agregar raza</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_pedigree' pedigree.id_pedigree %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar pedigree</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+</div>
+    
+{% endblock %}

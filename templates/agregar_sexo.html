@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'agregar_sexo.css' %}">
+<div class="container">
+    <div class="contenido">
+        <h2>Agregar sexo</h2>
+        <form action method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn-agregar">Agregar</button>
+            
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

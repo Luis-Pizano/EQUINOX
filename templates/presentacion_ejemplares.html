@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "cartas_ejemplar.css" %}">
+
+<div class="container">
+    <h2>Ejemplares disponibles</h2>
+    <div class="contenido">
+        {% for ejemplar in imagenes  %}
+        <div class="carta">
+            <a href="{% url 'detalle_ejemplar' ejemplar.id_ejemplar %}">
+                <img src="{{ejemplar.imagen.url }}">
+            </a>
+            <a class="nombre_raza">Raza: {{ejemplar.id_raza}}</a>
+            <a class="Pedigree" >Pureza: {{ejemplar.id_pedigree}}</a>
+            <a class="Precio" >Precio: {{ejemplar.precio_formateado}}</a>
+
+        </div>
+
+        {% endfor %}
+    
+    </div>
+    <div class="pagination">
+        {% if imagenes.has_previous %}
+            <a href="?pagina={{ imagenes.previous_page_number }}">Anterior</a>
+        {% endif %}
+        
+        <span>Página {{ imagenes.number }} de {{ imagenes.paginator.num_pages }}</span>
+        
+        {% if imagenes.has_next %}
+            <a href="?pagina={{ imagenes.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

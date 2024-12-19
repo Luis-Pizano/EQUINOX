@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'editar_proveedores.css' %}">
+
+<div class="container">
+    <div class="contenido">
+
+        <h2>Editar Proveedor</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="id_proveedor" value="{{ form.instance.id_proveedor }}">
+            <div class="acciones">
+                <button type="submit" class="guardar">Guardar cambios</button>
+                <a href="{% url 'listar_proveedores' %}" class="Cancelar">Cancelar</a>
+            </div>
+        </form>
+        
+        
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% endblock %}

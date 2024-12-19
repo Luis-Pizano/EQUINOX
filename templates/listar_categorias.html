@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_categorias.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de categorias</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de categoria</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.id_categoria }}</td>
+                    <td>{{ categoria.nombre_categoria }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_categoria' %}';">Agregar categoria</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_categoria' categoria.id_categoria %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar categoria</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form action="{% url 'editar_categoria' categoria.id_categoria %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-editar">Editar categoria</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+</div>
+    
+{% endblock %}

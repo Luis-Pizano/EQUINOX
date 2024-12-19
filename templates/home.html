@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h1>Bienvenido a EQUINOX</h1>
+        <div class="informacion">
+            <h2>Estadísticas</h2>
+            <p>Total de Empleados: {{ empleados }}</p>
+            <p>Total de Tipos de Empleados: {{ tipos_empleados }}</p>
+            <p>Total de Razas: {{ razas }}</p>
+            <p>Total de Ejemplares: {{ ejemplares }}</p>
+        </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif%}
+</div>
+{% endblock %}

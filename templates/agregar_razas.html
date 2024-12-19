@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'add_razas.css' %}">
+
+
+<div class="container">
+    <div class="contenido">
+         <!-- Mostrar errores del formulario -->
+    {% if form.errors %}
+        <div class="error">
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+        <h2>Agregar Raza</h2>
+        <form action="{% url 'agregar_razas' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="nombre">
+                <label>Nombre de la raza</label>
+                {{ form.nombre_raza}}
+            </div>
+            <div class="imagen_raza">
+                <label class="imagen">Seleccionar imagen</label>
+                {{ form.imagen }}
+            </div>
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

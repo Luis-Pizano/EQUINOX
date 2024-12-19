@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_clientes.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de clientes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de Cliente</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Correo</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.id_cliente }}</td>
+                    <td>{{ cliente.nombre_cliente}}</td>
+                    <td>{{ cliente.apellido_paterno}}</td>
+                    <td>{{ cliente.apellido_materno}}</td>
+                    <td>{{ cliente.correo}}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_cliente' %}';">Agregar cliente</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_cliente' cliente.id_cliente %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar cliente</button>
+                        </form>
+                        
+                    </td>
+
+                    <td>
+                        <form action="{% url 'editar_cliente' cliente.id_cliente %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-editar">Editar cliente</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+</div>
+    
+{% endblock %}

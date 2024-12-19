@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'editar_raza.css' %}">
+
+
+<div class="container">
+    <div class="contenido">
+        <h2>Editar Raza</h2>
+        <form action="{% url 'editar_raza' raza.id_raza %}" method="POST">
+            {% csrf_token %}
+            <div class="nombre">
+                <label>Nombre de la raza</label>
+                {{ form.nombre_raza }}
+            </div>
+            <button type="submit" class="btn-agregar">Guardar cambios</button>
+        </form>
+        
+    </div>
+</div>
+{% endblock %}
