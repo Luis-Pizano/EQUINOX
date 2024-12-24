@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'agregar_metodo_pago.css' %}">
+<div class="container">
+    <div class="contenido">
+        
+        <h2>Registro de metodo de pago</h2>
+        <form method="POST" action="{% url 'agregar_metodo_pago' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-guardar">Agregar</button>
+        </form>
+        {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+</div>
+{% endblock content %}

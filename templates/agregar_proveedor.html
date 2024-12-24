@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'agregar_proveedor.css' %}">
+<div class="container">
+    <div class="contenido">
+        <h2>Agregar Proveedor</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

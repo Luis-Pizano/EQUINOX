@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_metodos_pago.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de metodos de pago</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de metodo</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for metodo in metodos %}
+                <tr>
+                    <td>{{ metodo.id_metodo_pago }}</td>
+                    <td>{{ metodo.nombre_metodo_pago }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_metodo_pago' %}';">Agregar metodo</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_metodo_pago' metodo.id_metodo_pago %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar metodo</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form action="{% url 'editar_metodo_pago' metodo.id_metodo_pago %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-editar">Editar metodo</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+</div>
+    
+{% endblock %}

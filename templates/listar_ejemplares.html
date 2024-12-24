@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_ejemplares.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de ejemplares</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Raza</th>
+                <th>Pureza</th>
+                <th>Color</th>
+                <th>Sexo</th>
+                <th>Categoria</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Precio</th>
+                <th>Proveedor</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ejemplar in ejemplares %}
+                <tr>
+                    <td>{{ ejemplar.id_ejemplar }}</td>
+                    <td>{{ ejemplar.id_raza }}</td>
+                    <td>{{ ejemplar.id_pedigree }}</td>
+                    <td>{{ ejemplar.id_color }}</td>
+                    <td>{{ ejemplar.id_sexo }}</td>
+                    <td>{{ ejemplar.id_categoria }}</td>
+                    <td>{{ ejemplar.fecha_nacimiento }}</td>
+                    <td>{{ ejemplar.precio_formateado  }}</td>
+                    <td>{{ ejemplar.id_proveedor }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_ejemplar' %}';">Agregar ejemplar</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_ejemplar' ejemplar.id_ejemplar %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar ejemplar</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form action="{% url 'editar_ejemplar' ejemplar.id_ejemplar %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-editar">Editar ejemplar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+</div>
+    
+{% endblock %}

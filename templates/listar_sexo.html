@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_sexo.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de sexos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de sexo</th>
+                <th>Agregar</th>
+                <th>eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sexo in sexos %}
+                <tr>
+                    <td>{{ sexo.id_sexo }}</td>
+                    <td>{{ sexo.nombre_sexo }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_sexo' %}';">Agregar sexo</button>
+                    </td>
+                    <td>
+                        <form action="{% url 'eliminar_sexo' sexo.id_sexo %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar raza</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+
+</div>
+    
+{% endblock %}

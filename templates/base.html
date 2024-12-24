@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUINOX</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.jpg' %}">
+    <!-- Estilos -->
+    <link rel="stylesheet" type="text/css" href="{% static 'menu.css' %}">   
+    <!-- icono --> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    
+</head>
+<body>
+
+    
+    <nav>
+        <div class="link-home">
+            <a href="{% url 'home' %}"  class="link">Home</a>
+        </div>
+        <ul>
+            <li><a href="{% url "presentacion_ejemplares" %}" class="link">Nuestros Ejemplares</a></li>
+            <li><a href="{% url "presentacion_razas" %}" class="link">Nuestras Razas</a></li>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'registrarse' %}" class="link">Registro</a></li>
+            <li><a href="{% url 'login' %}" class="link">Login</a></li>
+            {% else %}
+            <li><a href="{% url 'logout' %}" class="link">Logout</a></li>
+            {% endif %}
+        </ul>
+
+
+        <!-- =============================== BARRA DE BUSQUEDA =============================== -->
+        <form action="{% url 'buscador' %}" method="get" class="search-form">
+            <div class="search-container">
+                <input type="text" name="q" class="search-input" placeholder="Search">
+                <!-- Ícono dentro del input -->
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        
+            
+
+        {% if user.escritura %}
+        <div class="dropdown">
+            <a class="admin_link">Agregar</a>
+            <div class="dropdown-content">
+                <a href="{% url 'agregar_empleado' %}">Agregar Empleado</a>
+                <a href="{% url 'agregar_tipo_empleado' %}">Agregar Tipo Empleado</a>
+                <a href="{% url 'agregar_razas' %}">Agregar Razas</a>
+                <a href="{% url 'agregar_metodo_pago' %}">Agregar Pago</a>
+                <a href="{% url 'agregar_sexo' %}">Agregar Sexo</a>
+                <a href="{% url 'agregar_color' %}">Agregar Color</a>
+                <a href="{% url 'agregar_tipo_proveedor' %}">Agregar Tipo Proveedor</a>
+                <a href="{% url 'agregar_tipo_suministro' %}">Agregar Tipo Suministro</a>
+                <a href="{% url 'agregar_categoria' %}">Agregar Categoria de equinos</a>
+                <a href="{% url 'agregar_pedigree' %}">Agregar Pedigree</a>
+                <a href="{% url 'agregar_proveedor' %}">Agregar Proveedores</a>
+                <a href="{% url 'agregar_cliente' %}">Agregar Cliente</a>
+                <a href="{% url 'agregar_suministro' %}">Agregar Suministro</a>
+                <a href="{% url 'agregar_ejemplar' %}">Agregar Ejemplar</a>
+                <a href="{% url 'agregar_venta' %}">Agregar Venta</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if user.lectura %}
+        <div class="dropdown-list">
+            <a class="admin_link">Listados</a>
+            <div class="dropdown-content">
+                <a href="{% url 'listar_empleados' %}">Listar Empleados</a>
+                <a href="{% url 'listar_tipo_empleados' %}">Listar Tipos De Empleados</a>
+                <a href="{% url 'listar_razas' %}">Listar Razas</a>
+                <a href="{% url 'listar_metodos_pago' %}">Listar Metodos De Pago</a>
+                <a href="{% url 'listar_sexo' %}">Listar Sexo</a>
+                <a href="{% url 'listar_colores' %}">Listar Colores</a>
+                <a href="{% url 'listar_tipo_proveedor' %}">Listar Tipo Proveedor</a>
+                <a href="{% url 'listar_tipo_suministro' %}">Listar Tipo Suministro</a>
+                <a href="{% url 'listar_categorias' %}">Listar Categorias de Equinos</a>
+                <a href="{% url 'listar_pedigree' %}">Listar Pedigree</a>
+                <a href="{% url 'listar_proveedores' %}">Listar Proveedores</a>
+                <a href="{% url 'listar_clientes' %}">Listar Clientes</a>
+                <a href="{% url 'listar_suministros' %}">Listar Suministros</a>
+                <a href="{% url 'listar_ejemplares' %}">Listar ejemplares</a>
+                <a href="{% url 'listar_ventas' %}">Listar Ventas</a>
+            </div>
+        </div>
+        {% endif %}
+        <a href="{% url "cart" %}" class="carrito">
+            <div class="icon icon-sm rounded-circle border">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <span class="carrito-notificacion">{{ cart_count }}</span>
+        </a>
+    </nav>
+    
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+</body>
+</html>

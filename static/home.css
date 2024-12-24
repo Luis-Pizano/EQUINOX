@@ -1,0 +1,81 @@
+/* Quitar márgenes y paddings generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    background: url("images/background_home.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding-top: 70px; /* Espacio suficiente para el nav */
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    top: 50%;
+}
+
+h1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.alert{
+    position: absolute;
+    color: #fff;
+    font-size: 26px;
+    margin: 15px 15px;
+    margin-top: 280px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.alert.success{
+    background: #4CAF50;
+}
+ 
+.alert.info{
+    background: rgb(190, 190, 190);
+    color:black;
+}
+ 
+
+/* Mantiene el menu fijo*/
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem;
+    z-index: 10; /* Establece que nav se superpone a otros elementos*/
+}
+
+.dropdown {
+    margin-right: 40px;
+}
+
+.dropdown-list{
+    margin-right: 69px;
+}

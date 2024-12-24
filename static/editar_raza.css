@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: url('images/background_agregar_razas.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.contenido {
+    width: 420px;
+    background: transparent;
+    border: solid 2px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 40px 30px;
+    margin: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contenido h2 {
+    text-align: center;
+    font-size: 36px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.nombre {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.nombre label {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.nombre input {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+}
+
+.contenido .btn-agregar {
+    width: 100%;
+    height: 45px;
+    background-color: #28a745;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.contenido .btn-agregar:hover {
+    background: #228b3b;
+    transition: all 0.3s ease;
+}
+
+.error li {
+    color: black;
+}

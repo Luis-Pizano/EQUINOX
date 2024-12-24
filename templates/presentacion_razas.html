@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "cartas_raza.css" %}">
+
+<div class="container">
+    <h2>Razas disponibles</h2>
+    <div class="contenido">
+        {% for raza in imagenes  %}
+        <div class="carta">
+            <img src={{raza.imagen.url}} alt="">
+            <a class="nombre_raza" >{{raza.nombre_raza}}</a> {% comment "" %} Todo aquello que se quiera posicionar dentro de algo DEBE ESTAR DONTRO DE UN MISMO CONTENEDOR / DIV {% endcomment %}
+
+        </div>
+
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if imagenes.has_previous %}
+            <a href="?pagina={{ imagenes.previous_page_number }}">Anterior</a>
+        {% endif %}
+        
+        <span>Página {{ imagenes.number }} de {{ imagenes.paginator.num_pages }}</span>
+        
+        {% if imagenes.has_next %}
+            <a href="?pagina={{ imagenes.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

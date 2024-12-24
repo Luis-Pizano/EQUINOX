@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_ventas.css' %}">
+
+
+<div class="container">
+    <div class="contenido">
+        <h1>Tipos de Suministros</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Empleado</th>
+                <th>Cliente</th>
+                <th>Ejemplar</th>
+                <th>Metodo de Pago</th>
+                <th>Agregar</th>
+                {% comment %} <th>Eliminar</th> {% endcomment %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+                <tr>
+                    <td>{{ venta.id_venta }}</td>
+                    <td>{{ venta.id_empleado }}</td>
+                    <td>{{ venta.id_cliente }}</td>
+                    <td>{{ venta.id_ejemplar }}</td>
+                    <td>{{ venta.id_metodo_pago }}</td>
+                    <td> <button onclick="window.location.href='{% url "agregar_venta" %}'" class="btn-agregar"> Agregar Venta</button></td>
+                    {% comment %} <td>
+                         <form action="{% url 'eliminar_tipo_suministro' tipo.id_tipo_suministro%}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar tipo</button>
+                        </form> 
+                    </td> {% endcomment %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+    </div>
+    
+{% endblock content %}

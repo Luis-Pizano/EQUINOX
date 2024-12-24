@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_tipo_proveedor.css' %}">
+
+
+<div class="container">
+    <div class="contenido">
+        <h1>Tipos de Proveedores</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Tipo</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tipo in tipos %}
+                <tr>
+                    <td>{{ tipo.id_tipo_proveedor }}</td>
+                    <td>{{ tipo.nombre_tipo }}</td>
+                    <td> <button onclick="window.location.href='{% url "agregar_tipo_proveedor" %}'" class="btn-agregar"> Agregar tipo de proveedor</button></td>
+                    <td>
+                        <form action="{% url 'eliminar_tipo_proveedor' tipo.id_tipo_proveedor%}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar tipo</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+    </div>
+    
+{% endblock content %}

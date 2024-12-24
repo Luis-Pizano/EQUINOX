@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    /* margin-bottom: 15px; */
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/background_agregar_categoria.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.contenido{
+    width: 420px;
+    background: transparent;
+    border: solid 2px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px); 
+    color: #fff;
+    border-radius: 15px;
+    padding: 40px 30px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contenido h2{
+    text-align: center;
+    font-size: 36px; 
+    margin-top: 20px; /* Define el espacio entre la parte superior del elemento y el elemento que está encima de él */
+    margin-bottom: 20px;
+}
+
+
+.contenido form p{
+    display: flex;
+    flex-direction: column;
+}
+
+form p label{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+form p input{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.4); 
+    border-radius: 25px;
+    padding-left: 9px;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+.contenido button{
+    width: 100%;
+    height: 45px;
+    margin-top: 25px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    
+}
+
+.dropdown {
+    margin-right: 40px;
+}
+
+.dropdown-list{
+    margin-right: 69px;
+}

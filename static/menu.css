@@ -1,0 +1,224 @@
+nav {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: black;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem;
+    z-index: 10;
+    
+}
+
+
+ul {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+    height: 32px;
+}
+
+
+ul li {
+    color: #fff;
+    display: grid;
+    place-content: center;
+    margin: 0;
+}
+
+.link-home {
+    margin-right: 1.2rem;
+}
+
+
+
+.link-home a {
+    text-decoration: none;
+    color: white;
+}
+/* Efecto barra abajo de los links al interactuar*/
+.link {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.link:hover::before{
+    transform: scale(1);
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: all .5s ease;
+    bottom: 0;
+    left: 0;
+}
+/* FINAL EFECTO BARRA*/
+
+
+/* boton desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 22px;
+
+}
+
+
+.dropdown .admin_link{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dropdown-list .admin_link{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.dropdown-content {
+    display: none; /* Ocultar el menú por defecto */
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    max-height: 300px; 
+    overflow-y: auto; /* Habilita el scroll si hay demasiados elementos */
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    left: 50%; /* Posiciona el menú horizontalmente en el centro del botón */
+    transform: translateX(-50%); /* Ajusta para centrarlo */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Mostrar el menú cuando el botón es clicado */
+.dropdown:hover .dropdown-content,
+.dropdown-list:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .dropdown-content {
+        min-width: 200px; /* Ajustar ancho para pantallas pequeñas */
+    }
+}
+
+
+/* Mostrar el menú cuando el botón es clicado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-list:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Mantiene el menú fijo */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem;
+    z-index: 10; /* Establece que nav se superpone a otros elementos */
+}
+
+.dropdown {
+    margin-right: 42px;
+}
+
+.dropdown-list{
+    margin-right: 69px;
+    position: relative;
+}
+
+/* Contenedor del formulario */
+.search-container {
+    position: relative; /* Permite posicionar elementos dentro */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño del input */
+    margin: 0 auto; /* Centrar el formulario */
+    left: 60%;
+}
+
+/* Estilo del input */
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px; /* Espaciado interno: reserva espacio para el ícono */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    height: 30px;
+
+}
+
+/* Botón con el ícono */
+.search-button {
+    position: absolute;
+    right: 10px; /* Ubica el ícono a la derecha dentro del input */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: #555; /* Color del ícono */
+    font-size: 18px; /* Tamaño del ícono */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    padding: 5px;
+    outline: none;
+    transition: color 0.3s ease; /* Efecto de transición en el color */
+}
+
+.search-button:hover {
+    color: black;
+}
+
+
+.icon {
+    font-size: 24px; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+    margin-right: 15px;
+}
+
+.carrito {
+    position: absolute; /* Asegura que sea independiente */
+    top: 10px; /* Ajusta la posición vertical */
+    right: 20px; /* Ajusta la posición horizontal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrito-notificacion {
+    position: absolute;
+    top: -5px; /* Ajusta según el tamaño */
+    right: -5px; /* Ajusta según el tamaño */
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 0 6px;
+    min-width: 20px;
+    text-align: center;
+    margin-right: 5px;
+}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "detalle_ejemplares.css" %}">
+
+<div class="container">
+    <div class="carta">
+        <img src="{{ ejemplar.imagen.url }}" alt="Imagen del ejemplar">
+
+        <div class="detalle">
+            <a class="nombre_raza">{{ ejemplar.id_raza }}</a>
+            <p class="descripcion">Otras caracteristicas: {{ ejemplar.descripcion }}</p>
+            <p class="descripcion">Fecha de nacimiento: {{ ejemplar.fecha_nacimiento }}</p>
+            <p class="descripcion">Categoria: {{ ejemplar.id_categoria }}</p>
+            <p class="descripcion">Sexo: {{ ejemplar.id_sexo }}</p>
+            <p class="descripcion">Color: {{ ejemplar.id_color }}</p>
+            <p class="descripcion">Pureza: {{ ejemplar.id_pedigree }}</p>
+            <p class="precio">Precio: {{ ejemplar.precio_formateado }}</p>
+            {% if in_cart %}
+                <a href="{% url "presentacion_ejemplares" %}" class="en-carrito">Ejemplar en carrito</a>
+            {% else %}
+                <form action="{% url 'add_cart' ejemplar.id_ejemplar %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn_agregar">Añadir al carrito</button>
+                </form>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

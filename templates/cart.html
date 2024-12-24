@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'cart.css' %}"> 
+
+<section class="section-content padding-y bg">  <!-- ============================ PRINCIPAL PARA CENTAR CONTENIDO ================================= -->
+    <div class="container">
+    
+    <!-- ============================ COMPONENT 1 ================================= -->
+    
+    <div class="row">
+        <aside class="cart-items-container">
+            <div class="cart-items">
+                <table class="shopping-cart">
+                    <thead class="header-row">
+                        <tr>
+                            <th>Ejemplar</th>
+                            <th class= "precio-table">Precio</th>
+                            <th class="text-right"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>
+                                <!-- Información del ejemplar -->
+                                <figure class="item">
+                                <!-- =========================== IMAGEN DEL EJEMPLAR =========================== -->
+
+                                    <div class="image-container">
+                                        <img src="{{ item.ejemplar.imagen.url }}" alt="{{ item.ejemplar.descripcion }}">
+                                    </div>
+                                    <!-- =========================== IMAGEN DEL EJEMPLAR END =========================== -->
+
+                                    <figcaption class="details">
+                                        <p>Color: {{ item.ejemplar.id_color.nombre_color }}</p>
+                                        <small>ID: {{ item.ejemplar.id_ejemplar }}</small>
+                                        <p>cantidad de ejemplares: 1</p>
+                                        <p>Raza: {{ item.ejemplar.id_raza.nombre_raza }}</p>
+                                    </figcaption>
+                                </figure>
+                            </td>
+
+                            <!-- =========================== PRECIO DEL EJEMPLAR =========================== -->
+                            <td class ="precio-ejemplar"> 
+                                <!-- Precio -->
+                                {% comment %} <div class="price-wrap"> 
+                                    <var class="price">${{ item.ejemplar.precio_formateado }}</var>
+                                </div> {% endcomment %}
+                                {{ item.ejemplar.precio_formateado }}
+                            </td>
+                            <!-- =========================== PRECIO DEL EJEMPLAR END =========================== -->
+
+
+                            <!-- Botón de remover -->
+                            <td class="action"> 
+                                <a href="{% url 'remove_cart_item' item.ejemplar.id_ejemplar %}" class="btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> <!-- cart-items -->
+        </aside> <!-- cart-items-container -->
+        <aside class="summary-container">
+            <div class="summary">
+                <div class="summary-body">
+                    <dl class="summary-details">
+                        <dt class="detalle-precios">Subtotal:</dt>
+                        <dd>${{ total }}</dd>
+                    </dl>
+                    <dl class="summary-details">
+                        <dt>IVA (19%):</dt>
+                        <dd>${{ IVA }}</dd>
+                    </dl>
+                    <dl class="summary-details">
+                        <dt>Total:</dt>
+                        <dd><strong>${{ total}}</strong></dd>
+                    </dl>
+                    <hr>
+                    <div class="action-buttons">
+                        <a href="{% url 'presentacion_ejemplares' %}" class="btn-primary">Continuar Comprando</a>
+                        <a href="{% url 'remove_all_items' %}" class="btn-danger">Vaciar Carrito</a>
+                        <a href="{% url 'pagar' %}" class="btn-success">Proceder Pago</a>
+                    </div>
+                </div> <!-- summary-body -->
+            </div> <!-- summary -->
+        </aside> <!-- summary-container -->
+    </div> <!-- row -->
+    <!-- ============================ COMPONENT 1 END .// ================================= -->
+    
+    </div> <!-- container -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock content %}

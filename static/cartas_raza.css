@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background: url('images/background_raza_cards.jpg') no-repeat center center;
+    background-size: cover;
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra el contenido dentro del contenedor */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.container h2{
+    text-align: center;
+    font-size: 36px;
+    margin: 15px 15px;
+    color: #fff;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 20px; /* Espacio uniforme entre tarjetas */
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    max-width: 1200px; /* Opcional: ancho máximo para centrar contenido en pantallas grandes */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.carta {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro de la tarjeta */
+    align-items: center;
+}
+
+.carta img {
+    width: 100%; /* Asegura que las imágenes ocupen el ancho de su contenedor */
+    aspect-ratio: 4/3; /* Mantén una proporción uniforme (opcional) */
+    object-fit: cover; /* Recorta las imágenes para que llenen el contenedor */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px black;
+}
+
+.nombre_raza {
+    position: absolute;
+    bottom: 10px; /* Ubica el texto en la parte inferior */
+    left: 10px;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente para el texto */
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Centra la paginación horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    margin-top: 20px; /* Espacio superior */
+    gap: 10px; /* Espacio entre los elementos */
+    font-family: Arial, sans-serif;
+}
+
+.pagination a {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffff; /* Color de texto */
+    background-color: #007bff; /* Fondo azul */
+    padding: 8px 16px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición para el hover */
+    font-size: 14px;
+}
+
+
+.pagination a:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el mouse */
+}
+
+.pagination span {
+    font-size: 14px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    padding: 6px 12px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f8f9fa; /* Fondo gris claro */
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .contenido {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}

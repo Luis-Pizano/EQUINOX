@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    background: url('images/background_ejemplar_cards.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    margin-top: 20px;
+    padding: 10px;
+}
+.container h2{
+    text-align: center;
+    font-size: 36px;
+    margin: 15px 15px;
+    color: #fff;
+
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+.carta {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carta img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px black;
+}
+
+.contenido .carta img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Escala de grises a todas las imágenes por defecto */
+.contenido:hover .carta img {
+    filter: grayscale(100%);
+}
+
+/* Quita la escala de grises a la carta seleccionada */
+.contenido .carta:hover img {
+    filter: none;
+}
+
+
+
+.Pedigree {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Precio{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nombre_raza {
+    position: absolute;
+    bottom: 90%;
+    left: 10px;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Centra la paginación horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    margin-top: 20px; /* Espacio superior */
+    gap: 10px; /* Espacio entre los elementos */
+    font-family: Arial, sans-serif;
+}
+
+.pagination a {
+    text-decoration: none; /* Sin subrayado */
+    color: #ffffff; /* Color de texto */
+    background-color: #007bff; /* Fondo azul */
+    padding: 8px 16px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición para el hover */
+    font-size: 14px;
+}
+
+
+.pagination a:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el mouse */
+}
+
+.pagination span {
+    font-size: 14px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    padding: 6px 12px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f8f9fa; /* Fondo gris claro */
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+}

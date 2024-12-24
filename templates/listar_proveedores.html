@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'listar_proveedores.css' %}">
+
+<div class="container">
+    <div class="contenido">
+        <h2>Lista de proveedores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Proveedor</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Correo</th>
+                <th>Agregar</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.id_proveedor }}</td>
+                    <td>{{ proveedor.id_tipo_proveedor.nombre_tipo }}</td>
+                    <td>{{ proveedor.nombre_proveedor }}</td>
+                    <td>{{ proveedor.apellido_paterno }}</td>
+                    <td>{{ proveedor.apellido_materno }}</td>
+                    <td>{{ proveedor.correo }}</td>
+                    <td>
+                        <button class="btn-agregar" onclick="window.location.href='{% url 'agregar_proveedor' %}';">Agregar proveedor</button>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'eliminar_proveedor' proveedor.id_proveedor %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-eliminar">Eliminar proveedor</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form method="POST" action="{% url 'editar_proveedor' proveedor.id_proveedor %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-editar">Editar proveedor</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+    </div>
+</div>
+    
+{% endblock %}
