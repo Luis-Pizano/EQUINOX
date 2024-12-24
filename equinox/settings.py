@@ -98,7 +98,11 @@ DATABASES = {
         'NAME': 'EQUINOX',
         'USER': 'ADMIN_EQUINOX',
         'PASSWORD': '1234',
+<<<<<<< HEAD
         'HOST': 'LAPTOP-OILJ2S7T\\SQLEXPRESS',
+=======
+        'HOST': 'LAPTOP-4P147N27',
+>>>>>>> df0e6694c6d26e39262ffc8dc27141ee9db8a020
         'PORT': '',  # Deja vacío si usas el puerto por defecto (1433)
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
