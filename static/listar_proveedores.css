@@ -116,3 +116,7 @@ nav {
 .dropdown-list{
     margin-right: 69px;
 }
+
+.search-input{
+    height: 8px;
+}
