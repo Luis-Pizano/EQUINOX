@@ -46,8 +46,7 @@
         </form>
         
             
-
-        {% if user.escritura %}
+        {% if user.is_admin %}
         <div class="dropdown">
             <a class="admin_link">Agregar</a>
             <div class="dropdown-content">
@@ -68,9 +67,7 @@
                 <a href="{% url 'agregar_venta' %}">Agregar Venta</a>
             </div>
         </div>
-        {% endif %}
 
-        {% if user.lectura %}
         <div class="dropdown-list">
             <a class="admin_link">Listados</a>
             <div class="dropdown-content">
