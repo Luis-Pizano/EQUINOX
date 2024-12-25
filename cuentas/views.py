@@ -41,3 +41,7 @@ def iniciar_sesion(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+def listar_cuentas(request):
+    cuentas = Account.objects.all()
+    return render(request,'listar_cuentas.html',{'cuentas':cuentas})

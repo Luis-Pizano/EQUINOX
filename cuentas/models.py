@@ -47,8 +47,10 @@ class Account(AbstractBaseUser):
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
     is_admin = models.BooleanField(default=False)
-    lectura = models.BooleanField(default=False)
-    escritura = models.BooleanField(default=False)
+    is_cuidador = models.BooleanField(default=False)
+    is_criador = models.BooleanField(default=False)
+    is_veterinario = models.BooleanField(default=False)
+    is_vendedor = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_superadmin = models.BooleanField(default=False)
     
