@@ -29,6 +29,9 @@
             <li><a href="{% url 'registrarse' %}" class="link">Registro</a></li>
             <li><a href="{% url 'login' %}" class="link">Login</a></li>
             {% else %}
+            {% if user.is_admin %}
+            <li><a href="{% url 'cuentas' %}" class="link">Cuentas</a></li>
+            {% endif %}
             <li><a href="{% url 'logout' %}" class="link">Logout</a></li>
             {% endif %}
         </ul>

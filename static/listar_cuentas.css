@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    /* background: url('images/backgroud_editar_ejemplar.jpg') no-repeat center center;
+    background-size: cover; */
+    background: linear-gradient(to right, #d3d3d3, #a2c2e4);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.container h2{
+    text-align: center;
+    font-size: 36px; 
+    margin-top: 12px; 
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background: #fff;
+}
+
+table th, table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+  
+table th {
+    background-color: rgb(143, 180, 230);
+}
+
+table .btn-editar{
+    height: 30px;
+    width: 130px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background: #0770e0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+table .btn-editar:hover{
+    background: #0056b3;
+    transition: all 0.3s ease;
+}

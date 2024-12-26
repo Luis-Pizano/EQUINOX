@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'editar_cuenta.css' %}">
+
+<div class="container">
+    <div class="contenido">
+      <h2>Actualizar Cuenta de {{ user.nombre }} {{ user.apellido }}</h2>
+    
+      <!-- Formulario -->
+      <form method="post">
+          {% csrf_token %}
+          
+          <!-- Mostrar el formulario de Django -->
+          {{ form.as_p }}
+  
+          <!-- Botón para enviar el formulario -->
+          <div class="acciones">
+            <button type="submit" class="guardar">Guardar cambios</button>
+            <a href="{% url 'cuentas' %}" class="Cancelar">Cancelar</a>
+        </div>
+      </form>
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

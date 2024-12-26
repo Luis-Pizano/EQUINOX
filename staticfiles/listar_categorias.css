@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html, body{
+    background: url('images/background_agregar_categoria.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    width: 100%;
+}
+
+.contenido h2{
+    text-align: center;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background: #fff;
+}
+  
+  table th, table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+  
+  table th {
+    background-color: rgb(143, 180, 230);
+}
+
+table .btn-eliminar{
+    background: #dc3545;
+    height: 30px;
+    width: 130px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+table .btn-agregar{
+    background: #28a745;
+    height: 30px;
+    width: 130px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+table .btn-editar{
+    background: #0770e0;
+    height: 30px;
+    width: 130px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+table .btn-agregar, .btn-eliminar, .btn-editar{
+    color: #fff;
+}
+
+.btn-agregar:hover{
+    background: #228b3b;
+    transition: all 0.3s ease;
+}
+
+table .btn-eliminar:hover{
+    background: #DB142C;
+    transition: all 0.3s ease;
+
+}
+
+table .btn-editar:hover{
+    background: #0056b3;
+    transition: all 0.3s ease;
+}
+
+.container .alert{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 15px;
+    color: #fff;
+}
+
+
+.dropdown {
+    margin-right: 40px;
+}
+
+.dropdown-list{
+    margin-right: 69px;
+}
+
+.query{
+    display: flex;
+    justify-content: center;
+    margin-left: 140%;
+}
+
+.search-input{
+    height: 8px;
+}

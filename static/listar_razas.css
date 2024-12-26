@@ -15,6 +15,11 @@ html, body{
     width: 100%;
 }
 
+.contenido{
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
 .contenido h2{
     margin-top: 60px;
     text-align: center;
