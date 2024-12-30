@@ -18,6 +18,9 @@
             <p class="descripcion">Color: {{ ejemplar.id_color }}</p>
             <p class="descripcion">Pureza: {{ ejemplar.id_pedigree }}</p>
             <p class="precio">Precio: {{ ejemplar.precio_formateado }}</p>
+            {% if not user.is_authenticated %}
+            <a href="{% url "login" %}" class="en-carrito">Inicia sesion para comprar</a>
+            {% else %}
             {% if in_cart %}
                 <a href="{% url "presentacion_ejemplares" %}" class="en-carrito">Ejemplar en carrito</a>
             {% else %}
@@ -25,6 +28,7 @@
                     {% csrf_token %}
                     <button class="btn_agregar">Añadir al carrito</button>
                 </form>
+            {% endif %}
             {% endif %}
             
         </div>
