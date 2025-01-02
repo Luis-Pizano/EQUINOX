@@ -5,9 +5,9 @@
 }
 
 html, body{
-    /* background: url('images/backgroud_editar_ejemplar.jpg') no-repeat center center;
-    background-size: cover; */
-    background: linear-gradient(to right, #d3d3d3, #a2c2e4);
+    background: url('images/background_registro.jpeg') no-repeat center center;
+    background-size: cover;
+    /* background: linear-gradient(to right, #d3d3d3, #a2c2e4); */
 }
 
 .container{
@@ -27,6 +27,7 @@ html, body{
     font-size: 36px; 
     margin-top: 12px; 
     margin-bottom: 20px;
+    color: #fff;
 }
 
 table {
@@ -66,4 +67,14 @@ table .btn-editar{
 table .btn-editar:hover{
     background: #0056b3;
     transition: all 0.3s ease;
+}
+
+.true {
+    color: rgb(8, 194, 8);
+    font-weight: bold;
+}
+
+.false {
+    color: red;
+    font-weight: bold;
 }
