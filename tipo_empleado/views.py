@@ -33,8 +33,8 @@ def eliminar_tipo_empleado(request, tipo_empleado_id):
 def editar_tipo_empleado(request, tipo_empleado_id):
 
     tipo_empleado = get_object_or_404(TipoEmpleado, id_tipo_empleado=tipo_empleado_id)
-    if request.method == 'POST':
-        form = TipoEmpleadoForm(request.POST, instance=tipo_empleado)
+    if request.method == 'GET':
+        form = TipoEmpleadoForm(request.GET, instance=tipo_empleado)
         if form.is_valid():
             form.save()
             messages.success(request, 'Tipo de empleado actualizado exitosamente.')

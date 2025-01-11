@@ -8,7 +8,7 @@
 <div class="container">
     <div class="contenido">
         <h2>Editar Raza</h2>
-        <form action="{% url 'editar_raza' raza.id_raza %}" method="POST">
+        <form action="{% url 'editar_raza' raza.id_raza %}" method="GET">
             {% csrf_token %}
             <div class="nombre">
                 <label>Nombre de la raza</label>

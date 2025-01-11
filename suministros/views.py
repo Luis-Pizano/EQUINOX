@@ -34,8 +34,8 @@ def eliminar_suministro(request,id):
 def editar_suministro(request, id_suministro):
     suministro = get_object_or_404(Suministros, id_suministro=id_suministro)
 
-    if request.method == 'POST':
-        form = SuministroEditForm(request.POST, instance=suministro)
+    if request.method == 'GET':
+        form = SuministroEditForm(request.GET, instance=suministro)
         if form.is_valid():
             form.save()
             messages.success(request, 'Stock actualizado exitosamente.')

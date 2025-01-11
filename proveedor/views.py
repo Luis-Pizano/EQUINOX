@@ -29,8 +29,8 @@ def eliminar_proveedor(request,id):
     
 def editar_proveedor(request, id):
     proveedor = get_object_or_404(Proveedor, id_proveedor=id)
-    if request.method == 'POST':
-        form = ProveedorForm(request.POST, instance=proveedor)
+    if request.method == 'GET':
+        form = ProveedorForm(request.GET, instance=proveedor)
         if form.is_valid():
             form.save()
             messages.success(request, 'Proveedor actualizado exitosamente.')

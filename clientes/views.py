@@ -33,8 +33,8 @@ def eliminar_cliente(request,id):
 def editar_cliente(request, id):
     cliente = get_object_or_404(Clientes, id_cliente=id)
 
-    if request.method == 'POST':
-        form = ClientesFormEditar(request.POST, instance=cliente)
+    if request.method == 'GET':
+        form = ClientesFormEditar(request.GET, instance=cliente)
         if form.is_valid():
             form.save()
             messages.success(request, 'Cliente actualizado exitosamente.')

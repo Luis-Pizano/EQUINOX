@@ -33,8 +33,8 @@ def editar_categoria(request, id):
     # Obtener la categoría por su ID
     categoria = get_object_or_404(Categoria, id_categoria=id)
 
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST, instance=categoria)
+    if request.method == 'GET':
+        form = CategoriaForm(request.GET, instance=categoria)
         
         if form.is_valid():
             # Si el formulario es válido, guardamos la categoría

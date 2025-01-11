@@ -31,8 +31,8 @@ def eliminar_tipo_suminstro(request, tipo_suministro_id):
 def editar_tipo_suministro(request, id):
     tipo_suministro = get_object_or_404(TipoSuministro, id_tipo_suministro=id)
 
-    if request.method == 'POST':
-        form = TipoSuministroForm(request.POST, instance=tipo_suministro)
+    if request.method == 'GET':
+        form = TipoSuministroForm(request.GET, instance=tipo_suministro)
         
         if form.is_valid():
             form.save()

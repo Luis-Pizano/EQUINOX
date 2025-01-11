@@ -54,8 +54,8 @@ def detalle_ejemplar(request, id_ejemplar):
 def editar_ejemplar(request, id_ejemplar):
     ejemplar = get_object_or_404(Ejemplares, id_ejemplar=id_ejemplar)
 
-    if request.method == 'POST':
-        form = EjemplaresEditForm(request.POST,request.FILES, instance=ejemplar)
+    if request.method == 'GET':
+        form = EjemplaresEditForm(request.GET,request.FILES, instance=ejemplar)
         if form.is_valid():
             form.save()
             messages.success(request, 'Ejemplar actualizado exitosamente.')

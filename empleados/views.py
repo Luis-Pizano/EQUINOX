@@ -30,9 +30,9 @@ def editar_empleado(request, id):
     # Obtener el empleado seleccionado
     empleado = get_object_or_404(Empleado, id_empleado=id)
     
-    if request.method == 'POST':
+    if request.method == 'GET':
         # Pasar los datos del formulario para la edición
-        form = EmpleadoForm(request.POST, instance=empleado)
+        form = EmpleadoForm(request.GET, instance=empleado)
         if form.is_valid():
             form.save()  # Guardar los nuevos datos del empleado
             messages.success(request, 'Empleado actualizado exitosamente.')

@@ -33,8 +33,8 @@ def listar_metodos_pago(request):
 def editar_metodo_pago(request, id):
     metodo_pago = get_object_or_404(MetodosPago, id_metodo_pago=id)
 
-    if request.method == 'POST':
-        form = MetodosPagoForm(request.POST, instance=metodo_pago)
+    if request.method == 'GET':
+        form = MetodosPagoForm(request.GET, instance=metodo_pago)
         
         if form.is_valid():
             form.save()

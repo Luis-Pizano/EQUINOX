@@ -37,8 +37,8 @@ def presentacion_razas(request):
 
 def editar_raza(request, id_raza):
     raza = get_object_or_404(Razas, id_raza=id_raza)  # Obtén la raza o muestra un 404 si no existe
-    if request.method == 'POST':
-        form = RazasFormEditar(request.POST, instance=raza)
+    if request.method == 'GET':
+        form = RazasFormEditar(request.GET, instance=raza)
         if form.is_valid():
             form.save()
             messages.success(request, 'Raza actualizada exitosamente.')
