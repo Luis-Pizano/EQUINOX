@@ -20,17 +20,17 @@
     
     <nav>
         <div class="link-home">
-            <a href="{% url 'home' %}"  class="link">Home</a>
+            <a href="{% url 'home' %}" class="link {% if request.path == '/' %}active{% endif %}">Home</a>
         </div>
         <ul>
-            <li><a href="{% url "presentacion_ejemplares" %}" class="link">Nuestros Ejemplares</a></li>
-            <li><a href="{% url "presentacion_razas" %}" class="link">Nuestras Razas</a></li>
+            <li><a href="{% url "presentacion_ejemplares" %}" class="link {% if request.path == '/presentacion_ejemplares/' %}active{% endif %}">Nuestros Ejemplares</a></li>
+            <li><a href="{% url "presentacion_razas" %}" class="link {% if request.path == '/presentacion_razas/' %}active{% endif %}">Nuestras Razas</a></li>
             {% if not user.is_authenticated %}
-            <li><a href="{% url 'registrarse' %}" class="link">Registro</a></li>
-            <li><a href="{% url 'login' %}" class="link">Login</a></li>
+            <li><a href="{% url 'registrarse' %}" class="link {% if request.path == '/registrarse/' %}active{% endif %}">Registro</a></li>
+            <li><a href="{% url 'login' %}" class="link {% if request.path == '/login/' %}active{% endif %}">Login</a></li>
             {% else %}
             {% if user.is_admin %}
-            <li><a href="{% url 'cuentas' %}" class="link">Cuentas</a></li>
+            <li><a href="{% url 'cuentas' %}" class="link {% if request.path == '/cuentas/' %}active{% endif %}">Cuentas</a></li>
             {% endif %}
             <li><a href="{% url 'logout' %}" class="link">Logout</a></li>
             {% endif %}
