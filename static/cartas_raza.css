@@ -7,7 +7,7 @@
 html,body{
     background: url('images/background_raza_cards.jpg') no-repeat center center;
     background-size: cover;
-
+    background-attachment: fixed;
 }
 
 .container {
